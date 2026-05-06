@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product — Dubai Traders Cosmatics &amp; Perfumes</title>
+    <meta name="description" content="Product details (demo) — Dubai Traders Cosmatics & Perfumes, Peshawar." />
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <script>
+      window.tailwind = window.tailwind || {};
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fff1f7",
+                100: "#ffe4ef",
+                200: "#ffc7de",
+                300: "#ff9fc4",
+                400: "#ff6aa0",
+                500: "#ff3d7f",
+                600: "#f31564",
+                700: "#cc0b50",
+                800: "#a80a45",
+                900: "#8d0c3e",
+              },
+            },
+            boxShadow: {
+              soft: "0 12px 40px rgba(17, 24, 39, 0.12)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white text-slate-900 antialiased">
+    <div x-data="productPage()" class="min-h-screen">
+      <!-- Header -->
+      <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/80 backdrop-blur">
+        <div class="flex w-full items-center justify-between px-4 py-4 lg:px-10">
+          <a href="index.html" class="group flex items-center gap-3">
+            <div class="relative">
+              <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-700 shadow-soft"></div>
+              <div class="absolute inset-0 grid place-items-center text-white">
+                <i class="fa-solid fa-sparkles"></i>
+              </div>
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-semibold tracking-wide text-slate-500">Dubai Traders</div>
+              <div class="text-base font-extrabold tracking-tight">Cosmatics &amp; Perfumes</div>
+            </div>
+          </a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+            <a href="index.html#products" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Products</a>
+            <a href="index.html#categories" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Categories</a>
+            <a href="about.html" class="text-sm font-semibold text-slate-700 hover:text-slate-900">About</a>
+            <a href="contact.html" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Contact</a>
+            <a href="https://wa.me/923343534500" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-slate-800">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="relative overflow-hidden">
+        <div class="absolute inset-0 -z-10 bg-gradient-to-b from-brand-50 via-white to-white"></div>
+
+        <div class="w-full px-4 py-10 lg:px-10">
+          <div class="flex flex-wrap items-center gap-3 text-sm text-slate-600">
+            <a href="index.html" class="font-semibold text-slate-700 hover:text-slate-900">Home</a>
+            <span class="text-slate-300">/</span>
+            <a href="index.html#products" class="font-semibold text-slate-700 hover:text-slate-900">Products</a>
+            <span class="text-slate-300">/</span>
+            <span class="font-semibold text-slate-900" x-text="product?.name || 'Product'"></span>
+          </div>
+
+          <template x-if="product">
+            <div class="mt-6 grid gap-8 lg:grid-cols-2 lg:items-start">
+              <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-soft">
+                <div class="aspect-[4/3] bg-slate-100">
+                  <img :src="product.image" :alt="product.name" class="h-full w-full object-cover" />
+                </div>
+              </div>
+
+              <section class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white px-3 py-1 text-sm font-semibold text-brand-800 shadow-sm">
+                  <i class="fa-solid fa-tag"></i>
+                  <span x-text="product.category"></span>
+                </div>
+                <h1 class="mt-4 text-4xl font-extrabold tracking-tight" x-text="product.name"></h1>
+                <p class="mt-4 text-lg leading-relaxed text-slate-600" x-text="product.desc"></p>
+
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                    <div class="text-xs font-semibold text-slate-500">Demo price</div>
+                    <div class="mt-1 text-2xl font-extrabold text-slate-900" x-text="product.price"></div>
+                  </div>
+                  <div class="rounded-3xl border border-slate-100 bg-slate-50 p-5">
+                    <div class="text-sm font-extrabold text-slate-900">Order via WhatsApp</div>
+                    <div class="mt-1 text-sm text-slate-600">We’ll confirm availability & pricing.</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    :href="whatsAppLink(product.name)"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex flex-1 items-center justify-center gap-2 rounded-2xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-soft hover:bg-slate-800"
+                  >
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>Order on WhatsApp</span>
+                  </a>
+                  <a
+                    href="index.html#products"
+                    class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50"
+                  >
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to products</span>
+                  </a>
+                </div>
+
+                <div class="mt-8 rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+                  <div class="text-sm font-extrabold text-slate-900">Note</div>
+                  <p class="mt-2 text-sm text-slate-600">
+                    This is a demo site. When you move to the full eCommerce site, we can add variants, stock, real prices, and online checkout.
+                  </p>
+                </div>
+              </section>
+            </div>
+          </template>
+
+          <template x-if="!product">
+            <div class="mt-10 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm">
+              <div class="text-lg font-extrabold tracking-tight">Product not found</div>
+              <p class="mt-2 text-slate-600">Open products from the home page list.</p>
+              <a href="index.html#products" class="mt-5 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>Go to products</span>
+              </a>
+            </div>
+          </template>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-100 bg-white">
+        <div class="w-full px-4 py-10 lg:px-10">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="text-sm text-slate-600">
+              © <span x-text="new Date().getFullYear()"></span> Dubai Traders Cosmatics &amp; Perfumes — Peshawar
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <a class="font-semibold text-slate-700 hover:text-slate-900" href="about.html">About</a>
+              <a class="font-semibold text-slate-700 hover:text-slate-900" href="contact.html">Contact</a>
+              <a class="inline-flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800" href="https://wa.me/923343534500" target="_blank" rel="noreferrer">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function productPage() {
+        const products = [
+          {
+            id: "elive",
+            name: "L’Oréal Elvive Shampoo Collection",
+            category: "Haircare",
+            desc: "Everyday repair & shine — great for salon-like results at home.",
+            price: "From Rs. —",
+            image: "images/elive.jpeg",
+          },
+          {
+            id: "serie",
+            name: "L’Oréal Serie Expert Shampoos",
+            category: "Haircare",
+            desc: "Professional care lineup for different hair needs (demo listing).",
+            price: "From Rs. —",
+            image: "images/Loreal-Serie-Expert-Shampoos.jpeg",
+          },
+          {
+            id: "pantene",
+            name: "Pantene Shampoos",
+            category: "Haircare",
+            desc: "Smoothness & strength — a classic choice for daily use.",
+            price: "From Rs. —",
+            image: "images/pantene-shampoos-pic.jpeg",
+          },
+          {
+            id: "sunsilk",
+            name: "Sunsilk Shampoos",
+            category: "Haircare",
+            desc: "Fresh feel & bounce — popular range for different hair types.",
+            price: "From Rs. —",
+            image: "images/sunsilk-shampoos.jpeg",
+          },
+          {
+            id: "keralin",
+            name: "Keralin Hair Oil",
+            category: "Haircare",
+            desc: "Nourishing oil for a healthy look and softer feel (demo).",
+            price: "From Rs. —",
+            image: "images/keralin-oil.jpeg",
+          },
+          {
+            id: "hydro",
+            name: "Neutrogena Hydro Boost",
+            category: "Skincare",
+            desc: "Hydration-focused essentials for a fresh, dewy look.",
+            price: "From Rs. —",
+            image: "images/neutrogena-hydro-boost.jpeg",
+          },
+          {
+            id: "yardley",
+            name: "Yardley Roll-On Collection",
+            category: "Fragrance",
+            desc: "Light everyday scent — simple, clean, and long-lasting.",
+            price: "From Rs. —",
+            image: "images/Yardley-Roll-On-Collection.jpeg",
+          },
+          {
+            id: "zerofrizz",
+            name: "Zero Frizz Shampoo Collection",
+            category: "Haircare",
+            desc: "Tames frizz and keeps hair manageable (demo listing).",
+            price: "From Rs. —",
+            image: "images/Zero-Frizz-Shampoo-Collection.jpeg",
+          },
+          {
+            id: "got2b",
+            name: "got2b Water Resistant Gel",
+            category: "Grooming",
+            desc: "Strong styling hold for modern looks — salon-grade finish.",
+            price: "From Rs. —",
+            image: "images/got2b-water-resistant-gel.jpeg",
+          },
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const id = (params.get("id") || "").trim();
+        const product = products.find((p) => p.id === id) || null;
+
+        return {
+          product,
+          whatsAppLink(productName) {
+            const msg = `Assalam o Alaikum! I want to ask about: ${productName} (Dubai Traders Cosmatics & Perfumes, Peshawar).`;
+            return `https://wa.me/923343534500?text=${encodeURIComponent(msg)}`;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
+

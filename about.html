@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Dubai Traders Cosmatics &amp; Perfumes</title>
+    <meta
+      name="description"
+      content="About Dubai Traders Cosmatics & Perfumes — a local cosmetics store in Peshawar (demo website)."
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      window.tailwind = window.tailwind || {};
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#fff1f7",
+                100: "#ffe4ef",
+                200: "#ffc7de",
+                300: "#ff9fc4",
+                400: "#ff6aa0",
+                500: "#ff3d7f",
+                600: "#f31564",
+                700: "#cc0b50",
+                800: "#a80a45",
+                900: "#8d0c3e",
+              },
+            },
+            boxShadow: {
+              soft: "0 12px 40px rgba(17, 24, 39, 0.12)",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-white text-slate-900 antialiased">
+    <div x-data="{ mobileOpen: false }" class="min-h-screen">
+      <!-- Header -->
+      <header class="sticky top-0 z-40 border-b border-slate-100 bg-white/80 backdrop-blur">
+        <div class="flex w-full items-center justify-between px-4 py-4 lg:px-10">
+          <a href="index.html" class="group flex items-center gap-3">
+            <div class="relative">
+              <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-700 shadow-soft"></div>
+              <div class="absolute inset-0 grid place-items-center text-white">
+                <i class="fa-solid fa-sparkles"></i>
+              </div>
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-semibold tracking-wide text-slate-500">Dubai Traders</div>
+              <div class="text-base font-extrabold tracking-tight">Cosmatics &amp; Perfumes</div>
+            </div>
+          </a>
+
+          <nav class="hidden items-center gap-8 md:flex">
+            <a href="index.html#products" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Products</a>
+            <a href="index.html#categories" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Categories</a>
+            <a href="about.html" class="text-sm font-semibold text-slate-900">About</a>
+            <a href="contact.html" class="text-sm font-semibold text-slate-700 hover:text-slate-900">Contact</a>
+            <a
+              href="https://wa.me/923343534500"
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-soft hover:bg-slate-800"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>Chat on WhatsApp</span>
+            </a>
+          </nav>
+
+          <button
+            class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-800 shadow-sm hover:bg-slate-50 md:hidden"
+            @click="mobileOpen = !mobileOpen"
+            aria-label="Open menu"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <div x-show="mobileOpen" x-transition class="border-t border-slate-100 bg-white md:hidden">
+          <div class="mx-auto max-w-6xl px-4 py-4">
+            <div class="grid gap-2">
+              <a href="index.html#products" class="rounded-xl px-3 py-2 font-semibold text-slate-800 hover:bg-slate-50">Products</a>
+              <a href="index.html#categories" class="rounded-xl px-3 py-2 font-semibold text-slate-800 hover:bg-slate-50">Categories</a>
+              <a href="about.html" class="rounded-xl px-3 py-2 font-semibold text-slate-800 hover:bg-slate-50">About</a>
+              <a href="contact.html" class="rounded-xl px-3 py-2 font-semibold text-slate-800 hover:bg-slate-50">Contact</a>
+              <a
+                href="https://wa.me/923343534500"
+                target="_blank"
+                rel="noreferrer"
+                class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-sm font-semibold text-white shadow-soft hover:bg-slate-800"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="w-full px-4 py-12 lg:px-10">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
+          <section class="max-w-xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-sm font-semibold text-brand-900">
+              <i class="fa-solid fa-heart"></i>
+              <span>About the store</span>
+            </div>
+            <h1 class="mt-4 text-4xl font-extrabold tracking-tight">Dubai Traders Cosmatics &amp; Perfumes</h1>
+            <p class="mt-4 text-lg leading-relaxed text-slate-600">
+              We’re a local store in <span class="font-semibold text-slate-800">Peshawar</span> offering a curated selection of
+              cosmetics, perfumes, haircare, skincare, and everyday grooming essentials.
+            </p>
+            <p class="mt-4 text-slate-600">
+              This website is a <span class="font-semibold text-slate-800">demo landing page</span> so you can see the overall design.
+              If you like it, the next step can be a complete eCommerce site (products, cart, checkout, admin panel, inventory, and order management).
+            </p>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="grid h-11 w-11 place-items-center rounded-2xl bg-slate-900 text-white">
+                    <i class="fa-solid fa-badge-check"></i>
+                  </div>
+                  <div class="font-extrabold tracking-tight">Quality first</div>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">
+                  We focus on popular, trusted brands and products people ask for every day.
+                </div>
+              </div>
+              <div class="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-700 text-white">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </div>
+                  <div class="font-extrabold tracking-tight">Easy ordering</div>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">
+                  Ask on WhatsApp and we’ll share availability and guidance quickly.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="contact.html"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-700 px-6 py-3 text-sm font-semibold text-white shadow-soft hover:bg-brand-800"
+              >
+                <i class="fa-regular fa-message"></i>
+                <span>Contact us</span>
+              </a>
+              <a
+                href="index.html"
+                class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50"
+              >
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to home</span>
+              </a>
+            </div>
+          </section>
+
+          <aside class="grid gap-5">
+            <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-soft">
+              <div class="aspect-[4/3] bg-slate-100">
+                <img src="images/elive.jpeg" alt="Store products" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <div class="p-5">
+                <div class="text-sm font-semibold text-slate-900">Demo product photography</div>
+                <div class="mt-1 text-sm text-slate-600">
+                  Your real product photos (with backgrounds) are used directly, as requested.
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-slate-100 bg-slate-50 p-6">
+              <div class="text-sm font-extrabold text-slate-900">Contact details</div>
+              <div class="mt-4 grid gap-3 text-sm">
+                <a class="inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900" href="mailto:dubaitraders4500@gmail.com">
+                  <i class="fa-regular fa-envelope text-slate-400"></i>
+                  <span>dubaitraders4500@gmail.com</span>
+                </a>
+                <a
+                  class="inline-flex items-center gap-2 font-semibold text-slate-700 hover:text-slate-900"
+                  href="https://wa.me/923343534500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i class="fa-brands fa-whatsapp text-slate-400"></i>
+                  <span>0334 3534500</span>
+                </a>
+                <div class="inline-flex items-center gap-2 text-slate-600">
+                  <i class="fa-solid fa-location-dot text-slate-400"></i>
+                  <span>Peshawar, Pakistan</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="border-t border-slate-100 bg-white">
+        <div class="w-full px-4 py-10 lg:px-10">
+          <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div class="text-sm text-slate-600">
+              © <span x-text="new Date().getFullYear()"></span> Dubai Traders Cosmatics &amp; Perfumes — Peshawar
+            </div>
+            <div class="flex items-center gap-4 text-sm">
+              <a class="font-semibold text-slate-700 hover:text-slate-900" href="index.html">Home</a>
+              <a class="font-semibold text-slate-700 hover:text-slate-900" href="contact.html">Contact</a>
+              <a
+                class="inline-flex items-center gap-2 font-semibold text-brand-700 hover:text-brand-800"
+                href="https://wa.me/923343534500"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
